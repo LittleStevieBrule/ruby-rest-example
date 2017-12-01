@@ -1,0 +1,105 @@
+PATH
+  remote: .
+  specs:
+    ruby_rest (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (5.1.4)
+      activesupport (= 5.1.4)
+    activesupport (5.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    bson (4.2.2)
+    coderay (1.1.2)
+    concurrent-ruby (1.0.5)
+    diff-lcs (1.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    faraday (0.13.1)
+      multipart-post (>= 1.2, < 3)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    i18n (0.9.1)
+      concurrent-ruby (~> 1.0)
+    method_source (0.9.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    minitest (5.10.3)
+    mongo (2.4.3)
+      bson (>= 4.2.1, < 5.0.0)
+    mongoid (6.1.1)
+      activemodel (~> 5.0)
+      mongo (>= 2.4.1, < 3.0.0)
+    mongoid_auto_inc (0.1.0)
+      activesupport (>= 3.0.0)
+      mongoid (>= 2.0.0.rc.6)
+    multipart-post (2.0.0)
+    mustermann (1.0.1)
+    netrc (0.11.0)
+    octokit (4.7.0)
+      sawyer (~> 0.8.0, >= 0.5.3)
+    pry (0.11.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    public_suffix (3.0.1)
+    rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
+    rake (10.5.0)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
+    sawyer (0.8.1)
+      addressable (>= 2.3.5, < 2.6)
+      faraday (~> 0.8, < 1.0)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    tzinfo (1.2.4)
+      thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16)
+  mongoid (~> 6.1.0)
+  mongoid_auto_inc
+  octokit
+  pry
+  rake (~> 10.0)
+  rest-client
+  rspec (~> 3.0)
+  ruby_rest!
+  sinatra (~> 2.0.0)
+
+BUNDLED WITH
+   1.16.0
