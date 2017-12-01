@@ -21,7 +21,8 @@ REST API written in Ruby Sinatra DSL.
              
  ### Entities
  Entities
-     Post:
+    
+Post:
          
          title: String
          post_id: Integer
@@ -32,7 +33,7 @@ REST API written in Ruby Sinatra DSL.
          owner_id: Integer
    
     
-    Dog:
+Dog:
         
          name: String
          dog_id: Integer
