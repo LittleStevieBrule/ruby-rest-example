@@ -36,7 +36,8 @@ class Server < Sinatra::Base
 
   # some documentation html
   get '/' do
-    'test'
+    status 200
+    { message: 'test' }
   end
 
   # * POSTS *
