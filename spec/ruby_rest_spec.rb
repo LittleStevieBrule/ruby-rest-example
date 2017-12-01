@@ -2,11 +2,12 @@ require_relative 'spec_helper'
 
 RSpec.describe RubyRest do
   before :all do
-    RubyRest.start_server
+    RubyRest.config.bind = '35.196.169.169'
+    # RubyRest.start_server
   end
 
   after :all do
-    RubyRest.stop_server
+    # RubyRest.stop_server
   end
 
   context 'routes' do

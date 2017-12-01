@@ -137,7 +137,11 @@ class Server < Sinatra::Base
   end
 
   def client
-    @client ||= Octokit::Client.new(access_token: data[:access_token])
+    @client ||=
+      begin
+        access_token = params['access_token'] ? params['access_token'] : data[:access_token]
+        Octokit::Client.new(access_token: access_token)
+      end
   end
 
   def authenticate

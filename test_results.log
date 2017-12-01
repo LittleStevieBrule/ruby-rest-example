@@ -1,0 +1,35 @@
+/Users/stephenm/.rvm/rubies/ruby-2.4.2/bin/ruby -I/Users/stephenm/.rvm/gems/ruby-2.4.2/gems/rspec-core-3.7.0/lib:/Users/stephenm/.rvm/gems/ruby-2.4.2/gems/rspec-support-3.7.0/lib /Users/stephenm/.rvm/gems/ruby-2.4.2/gems/rspec-core-3.7.0/exe/rspec --pattern spec/\*\*\{,/\*/\*\*\}/\*_spec.rb
+
+RubyRest
+  routes
+    /posts
+      should get all posts
+    /post/:id
+      should get a single post
+      should delete a post
+      should update a post
+    /dogs
+      should get all dogs
+      /dogs/:id
+        should get a dog
+        should delete a dog
+        should remove an associated dog from a post on delete
+        should update a dog
+        should return all dogs in a breed
+        should give a dog a bone
+    Unauthenticated request
+      should fail on POST /dogs
+      should fail on POST /posts
+      should fail on PATCH /posts/:id
+      should fail on PATCH /dogs/:id
+      should fail on DELETE /posts/:id
+      should fail on PUT /dogs/:id/bone
+    Unauthorized
+      Access to unauthorized resources
+        should fail on update posts
+        should fail on delete posts
+        should fail on update dogs
+        should fail on delete dogs
+
+Finished in 1 minute 29.42 seconds (files took 0.25802 seconds to load)
+21 examples, 0 failures

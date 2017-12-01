@@ -2,6 +2,12 @@ PATH
   remote: .
   specs:
     ruby_rest (0.1.0)
+      bundler (~> 1.16)
+      octokit
+      rake (~> 10.0)
+      rest-client
+      rspec (~> 3.0)
+      sinatra (~> 2.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -37,15 +43,12 @@ GEM
     mongoid (6.1.1)
       activemodel (~> 5.0)
       mongo (>= 2.4.1, < 3.0.0)
-    mongoid_auto_inc (0.1.0)
-      activesupport (>= 3.0.0)
-      mongoid (>= 2.0.0.rc.6)
     multipart-post (2.0.0)
     mustermann (1.0.1)
     netrc (0.11.0)
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
-    pry (0.11.1)
+    pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.1)
@@ -92,7 +95,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   mongoid (~> 6.1.0)
-  mongoid_auto_inc
   octokit
   pry
   rake (~> 10.0)
