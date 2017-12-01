@@ -4,21 +4,19 @@ require_relative 'ruby_rest/dog_client'
 require_relative 'ruby_rest/extensions/hash'
 require 'ostruct'
 require 'json'
+require 'mongoid'
+require_relative 'ruby_rest/server'
+Mongoid.load!('mongoid.yml', :development)
 
 
 # Top level entry point
 module RubyRest
 
+  BIND = '35.196.169.169'
+  PORT = 8080
+
   def self.config
     @config ||= OpenStruct.new(bind: '35.196.169.169', port: 8080)
-  end
-
-  def self.init
-    return if @inited
-    require 'mongoid'
-    Mongoid.load!('mongoid.yml', :development)
-    require_relative 'ruby_rest/server'
-    @intited = true
   end
 
   def self.tests
@@ -31,7 +29,6 @@ module RubyRest
   end
 
   def self.start_server
-    init
     @thread ||= Thread.new do
       Server.run!
     end

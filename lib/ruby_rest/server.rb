@@ -12,9 +12,7 @@ require_relative '../ruby_rest'
 #   able to post links to twitter about post
 # anyone
 #   can view blog posts
-def config
-  RubyRest.config
-end
+
 class Server < Sinatra::Base
 
 
@@ -23,8 +21,8 @@ class Server < Sinatra::Base
     e::VALID_RETURN_DATA
   end.flatten
 
-  set :bind, config.bind
-  set :port, config.port
+  set :bind, '0.0.0.0'
+  set :port, 8080
 
   before do
     content_type :json
