@@ -1,4 +1,4 @@
-require 'ruby_rest/version'
+require_relative 'ruby_rest/version'
 require 'pry'
 require 'mongoid'
 require_relative 'ruby_rest/request_helpers'
@@ -12,6 +12,11 @@ module RubyRest
 
   def self.config
     @config ||= OpenStruct.new(bind: '0.0.0.0', port: 8080)
+  end
+
+  def self.start_app
+    require_relative 'ruby_rest/server'
+    Server.run!
   end
 
   def self.start_server
