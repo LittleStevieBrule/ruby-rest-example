@@ -2,8 +2,8 @@ require_relative 'spec_helper'
 
 RSpec.describe RubyRest do
   before :all do
-    RubyRest.config.bind = '35.196.169.169'
-    # RubyRest.start_server
+    # RubyRest.config.bind = '35.196.169.169'
+    # RubyRest.start_s/erver
   end
 
   after :all do
@@ -46,6 +46,12 @@ RSpec.describe RubyRest do
         Req.patch("/posts/#{@post[:post_id]}", title: 'Updated', access_token: Req::TOKEN1)
         get = Req.get("/posts/#{@post[:post_id]}")
         expect(get[:title]).to eq 'Updated'
+      end
+
+      it 'should replace a post' do
+        Req.put("/posts/#{@post[:post_id]}", title: 'Replaced', content: 'replaced', access_token: Req::TOKEN1)
+        get = Req.get("/posts/#{@post[:post_id]}")
+        expect(get[:title]).to eq 'Replaced'
       end
     end
 
@@ -93,11 +99,10 @@ RSpec.describe RubyRest do
           expect(get.map { |e| e[:dog_id] }.include?(dog[:dog_id])).to eq true
         end
 
-        it 'should give a dog a bone' do
-          start = Req.get("/dogs/#{@dog[:dog_id]}")
-          Req.put("/dogs/#{@dog[:dog_id]}/bone", access_token: Req::TOKEN1)
-          after = Req.get("/dogs/#{@dog[:dog_id]}")
-          expect(after[:bones]).to eq start[:bones] + 1
+        it 'should replace a dog' do
+          Req.put("/dogs/#{@dog[:dog_id]}", name: 'Slip', breed: 'corgi', access_token: Req::TOKEN2)
+          get = Req.get("/dogs/#{@dog[:dog_id]}")
+          expect(get[:name]).to eq 'Slip'
         end
       end
     end
@@ -138,14 +143,6 @@ RSpec.describe RubyRest do
       it 'should fail on DELETE /posts/:id' do
         begin
           res = Req.delete('/dogs/someid', 'blah')
-        rescue => e
-          res = e
-        end
-        expect(res.http_code).to eq 401
-      end
-      it 'should fail on PUT /dogs/:id/bone' do
-        begin
-          res = Req.put('/dogs/someid/bone', access_token: 'blah')
         rescue => e
           res = e
         end

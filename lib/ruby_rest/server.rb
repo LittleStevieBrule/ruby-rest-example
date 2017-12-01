@@ -57,7 +57,7 @@ class Server < Sinatra::Base
     unless Post.required_keys?(data)
       halt(400, message: "#{Post::REQUIRED.join(',')} are required")
     end
-    Post.create(data.merge(owner_name: name, owner_id: user_id)).attributes
+    Post.create_resource(data.merge(owner_name: name, owner_id: user_id)).attributes
   end
 
   # modify a post  (requires auth)
@@ -76,6 +76,18 @@ class Server < Sinatra::Base
     authorize posting
     res = posting.delete
     { success: res }
+  end
+
+  put '/posts/:id' do
+    authenticate
+    halt(404, message: 'Post Not Found') unless posting
+    authorize posting
+    unless Post.required_keys?(data)
+      halt(400, message: "#{Post::REQUIRED.join(',')} are required")
+    end
+    id = posting[:post_id]
+    posting.delete
+    Post.put_resource(data, id).attributes
   end
 
   #  * DOGS *
@@ -102,7 +114,7 @@ class Server < Sinatra::Base
     unless Dog.required_keys?(data)
       halt(400, message: "#{Dog::REQUIRED.join(',')} are required")
     end
-    Dog.create(data.merge(owner_name: name, owner_id: user_id)).attributes
+    Dog.create_resource(data.merge(owner_name: name, owner_id: user_id)).attributes
   end
 
   # modify a dog (requires auth)
@@ -125,13 +137,16 @@ class Server < Sinatra::Base
     { success: res }
   end
 
-  # give a dog a bone (requires auth)
-  put '/dogs/:id/bone' do
+  put '/dogs/:id' do
     authenticate
     halt(404, message: 'Dog Not Found') unless dog
-    dog.give_a_bone
-    status 200
-    body(message: 'success')
+    authorize dog
+    unless Dog.required_keys?(data)
+      halt(400, message: "#{Dog::REQUIRED.join(',')} are required")
+    end
+    id = dog[:dog_id]
+    dog.delete
+    Dog.put_resource(data, id).attributes
   end
 
   def client

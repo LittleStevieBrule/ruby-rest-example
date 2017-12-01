@@ -13,6 +13,7 @@ Mongoid.load!('mongoid.yml', :development)
 module RubyRest
 
   BIND = '35.196.169.169'
+  # BIND = 'localhost'
   PORT = 8080
 
   def self.config

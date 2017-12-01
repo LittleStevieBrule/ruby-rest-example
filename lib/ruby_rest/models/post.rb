@@ -31,13 +31,22 @@ class Post
     field k, type: v
   end
 
-  def self.create(attributes, &block)
+  def self.create_resource(attributes, &block)
     attributes = filter_data attributes
     time = Time.now
     attributes[:dog_ids] = [] unless attributes[:dog_ids]
     attributes[:post_id] = DateTime.now.strftime('%Q')
     attributes[:date_created] = "#{time.month}/#{time.day}/#{time.year}"
-    super(attributes, &block)
+    create(attributes, &block)
+  end
+
+  def self.put_resource(attributes, id)
+    attributes = filter_data attributes
+    attributes[:dog_ids] = [] unless attributes[:dog_ids]
+    attributes[:post_id] = id
+    time = Time.now
+    attributes[:date_created] = "#{time.month}/#{time.day}/#{time.year}"
+    create(attributes)
   end
 
   def update_attributes!(attributes)
