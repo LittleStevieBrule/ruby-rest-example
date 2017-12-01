@@ -2,7 +2,9 @@
 REST API written in Ruby Sinatra DSL.
  
  
- The live server is up at http://35.196.169.169:8080/ 
+ The live server is up here:    http://35.196.169.169:8080/ 
+ 
+ Test results here:   https://media.oregonstate.edu/media/t/0_4a5lzkiw
  
  
  ## API
@@ -84,6 +86,9 @@ REST API written in Ruby Sinatra DSL.
  #### `DELETE /posts/{post_id}`
  Deletes a post (requires auth) 
  
+  #### `PUT /dogs/{id}`
+  Replace a dog (requires auth) 
+ 
  #### `GET /dogs`
  Gets all dogs
  
@@ -122,6 +127,9 @@ REST API written in Ruby Sinatra DSL.
          
  #### `DELETE /dogs/{id}` 
  Delete a dog (requires auth)
+ 
+ #### `PUT /dogs/{id}`
+ Replace a dog (requires auth) 
 
     
 ## Account system

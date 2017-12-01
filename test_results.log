@@ -8,6 +8,7 @@ RubyRest
       should get a single post
       should delete a post
       should update a post
+      should replace a post
     /dogs
       should get all dogs
       /dogs/:id
@@ -16,14 +17,13 @@ RubyRest
         should remove an associated dog from a post on delete
         should update a dog
         should return all dogs in a breed
-        should give a dog a bone
+        should replace a dog
     Unauthenticated request
       should fail on POST /dogs
       should fail on POST /posts
       should fail on PATCH /posts/:id
       should fail on PATCH /dogs/:id
       should fail on DELETE /posts/:id
-      should fail on PUT /dogs/:id/bone
     Unauthorized
       Access to unauthorized resources
         should fail on update posts
@@ -31,5 +31,5 @@ RubyRest
         should fail on update dogs
         should fail on delete dogs
 
-Finished in 1 minute 29.42 seconds (files took 0.25802 seconds to load)
+Finished in 1 minute 30.2 seconds (files took 0.82262 seconds to load)
 21 examples, 0 failures
