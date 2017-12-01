@@ -6,6 +6,8 @@ REST API written in Ruby Sinatra DSL.
  
  Test results here:   https://media.oregonstate.edu/media/t/0_4a5lzkiw
  
+ Test results and server logs are in the root of this repo: test_results.log and server.log
+ 
  
  ## API
  
@@ -134,11 +136,7 @@ Dog:
 
     
 ## Account system
-This API uses Github as its 3rd party account system. That is all resources are linked to a Github user account. 
-Authentication is required for creating resources.
-Access must be authorized to modifying resources, resources can only be updated or deleted with the access token of
-user that originally posted the resource. 
-No authentication is required for GET request on any resource
+This API uses Github as its 3rd party account system. That is all resources are linked to a Github user account.Authentication is required for creating resources.Access must be authorized to modifying resources, resources can only be updated or deleted with the access token of user that originally posted the resource. No authentication is required for GET request on any resource
 
 Their are no scopes required for the access token. The API authenticates with the access token and then gets 
 information about the users name and the users unique Github user id. On creating a resource the Github user id is 
