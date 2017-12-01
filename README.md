@@ -179,6 +179,3 @@ Execute the tests
 
         bundle exec rake
 
-
-
-
