@@ -10,7 +10,7 @@ REST API written in Ruby Sinatra DSL.
  ## API
  
  ### Authentication
- Authentication is required to create/modify/delete a users posts and dogs
+ Authentication is required to create/modify/delete a users posts and dogs.
  All requests marked with (requires auth) must provide a Github access token as part of the request body or uri
  Example: 
              
@@ -56,15 +56,15 @@ REST API written in Ruby Sinatra DSL.
  Create a post (requires auth)
  
  Request JSON: 
- 
-    ```json
-        { 
-          "title": "My awesome dog Slippy!",
-          "content": "This is where I talk about how awesome my dog slippy is", 
-          "dog_ids": [1234,4321],
-          "access_token": "<my Github access token>"
-        }
-    ```
+
+```json
+    { 
+      "title": "My awesome dog Slippy!",
+      "content": "This is where I talk about how awesome my dog slippy is", 
+      "dog_ids": [1234,4321],
+      "access_token": "<my Github access token>"
+    }
+```
     
  Response:
  
@@ -134,14 +134,14 @@ REST API written in Ruby Sinatra DSL.
     
 ## Account system
 This API uses Github as its 3rd party account system. That is all resources are linked to a Github user account. 
-Authentication is required for creating resources 
+Authentication is required for creating resources.
 Access must be authorized to modifying resources, resources can only be updated or deleted with the access token of
 user that originally posted the resource. 
 No authentication is required for GET request on any resource
 
 Their are no scopes required for the access token. The API authenticates with the access token and then gets 
-information about the users name and the users unique Github user id. On creating a resource the Github user id is persisted along with the stored 
-resource and used for authorizing requests for that resource. The Github user id is not the username. The Github user id
+information about the users name and the users unique Github user id. On creating a resource the Github user id is 
+persisted along with rest of the resource data and used for authorizing requests for that resource. The Github user id is not the username. The Github user id
 is a unique id that Github stores to uniquely identify a user account.
 
 ## DOG API
